@@ -17,7 +17,7 @@ include 'conf.php';
     }
     td {
         border: 1px solid black;
-        padding: 10px;
+        padding: 20px;
         width: 10px;
         height: 10px;
     }
@@ -31,14 +31,16 @@ include 'conf.php';
         <?php
         //Filas
         echo "<tr>";
+        echo '<td class="coordenada"></td>';
         foreach ($coordenadas as $coordenada) {
             echo '<td class="coordenada">', $coordenada,'</td>';
         }
         echo "</tr>";
-        for ($i = 1; $i <= 8; $i++) {
+        for ($i = 8; $i >= 1; $i--) {
             echo "<tr>";
+            echo '<td class="coordenada">', $i,'</td>';
             //Columnas
-            for ($j = 1; $j <= 8; $j++) {
+            for ($j = 8; $j >= 1; $j--) {
                 if (($j + $i) % 2 == 0) {
                     $color = 'white';
                 } else {
@@ -46,7 +48,12 @@ include 'conf.php';
                 }
                 echo '<td class="', $color,'"></td>';
             }
+            echo '<td class="coordenada">', $i,'</td>';
             echo "</tr>";
+        }
+        echo '<td class="coordenada"></td>';
+        foreach ($coordenadas as $coordenada) {
+            echo '<td class="coordenada">', $coordenada,'</td>';
         }
         ?>
     </table>
